@@ -10,6 +10,7 @@ public class User {
     private String name;
     private String password;
     private String mail;
+    private String test;
 
     public int getId() {
         return id;
