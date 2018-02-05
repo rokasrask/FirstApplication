@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Button button2 = (Button) findViewById(R.id.button2);
         final Button button = (Button) findViewById(R.id.button);
+        final Button listbutton = (Button) findViewById(R.id.listButton);
         final CheckBox cbRemember = (CheckBox) findViewById(R.id.cbRemember);
         final EditText etUsername = (EditText) findViewById(R.id.Username);
         final EditText etPassword = (EditText) findViewById(R.id.Password);
@@ -49,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        listbutton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Intent listIntent = new Intent(view.getContext(), List.class);
+                startActivityForResult(listIntent, 0);
+            }
+        });
 
         button2.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view2) {
