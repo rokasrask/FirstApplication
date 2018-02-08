@@ -27,10 +27,11 @@ public class Login extends AppCompatActivity {
 
         /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.)*/
-
+        final DBcats dbHandler = new DBcats(this, null, null, 1);
         final String catstuff = "";
         final Button buttonback2 = (Button) findViewById(R.id.button4);
         final Button buttonadd = (Button) findViewById(R.id.buttonadd);
+        final Button buttonDisplay = (Button) findViewById(R.id.displayButton);
         final EditText etId = (EditText) findViewById(R.id.etId);
         final EditText etName = (EditText)findViewById(R.id.etName);
         final EditText etFacts = (EditText)findViewById(R.id.etFacts);
@@ -66,9 +67,17 @@ public class Login extends AppCompatActivity {
                                 "Interesting :" + catstuff.toString() + "\n" +
                                 radioButton.getText(), Toast.LENGTH_SHORT).show();
 
+                Facts facts = new Facts(etName.getText().toString(), etWords.getText().toString(), etFacts.getText().toString(),  catstuff.toString(), (String) radioButton.getText());
+                dbHandler.addCatfact(facts);
             }
         });
 
+        buttonDisplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
 
     }
 
